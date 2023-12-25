@@ -1,7 +1,7 @@
 import unittest
-from wine import Wine
-from beer import Beer
-from market import Market
+from ..wine import Wine
+from ..beer import Beer
+from ..market import Market
 
 class TestMarketMethods(unittest.TestCase):
     def setUp(self):
