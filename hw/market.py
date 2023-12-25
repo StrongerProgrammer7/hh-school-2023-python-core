@@ -1,3 +1,4 @@
+from decorator import printing_decorator
 class Market:
     @staticmethod
     def _isBothDateExists(from_date, to_date):
@@ -11,6 +12,7 @@ class Market:
         self.wines = {} if wines is None else {wine.title: wine for wine in wines}
         self.beers = {} if beers is None else {beer.title: beer for beer in beers}
 
+    @printing_decorator
     def has_drink_with_title(self, title=None) -> bool:
         if self.wines is not None:
             if title in self.wines:
@@ -28,6 +30,8 @@ class Market:
                 list_drinks += list(dict_drink.values())
 
         return list_drinks
+
+    @printing_decorator
     def get_drinks_sorted_by_title(self) -> list:
         list_drinks = self.__get_listDrinks([self.wines,self.beers])
         list_drinks = sorted(list_drinks, key=lambda x: x.title)
@@ -45,6 +49,7 @@ class Market:
                 list_drinks.append(drink)
         return list_drinks
 
+    @printing_decorator
     def get_drinks_by_production_date(self, from_date=None, to_date=None) -> list:
         if from_date is None and to_date is None:
             return  self.__get_listDrinks([self.wines,self.beers])
