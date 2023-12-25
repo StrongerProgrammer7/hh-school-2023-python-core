@@ -11,7 +11,9 @@ class Market:
         return False
 
     def get_drinks_sorted_by_title(self) -> list:
-        pass
+        list_drinks = list(self.wines.values()) + list(self.beers.values())
+        list_drinks = sorted(list_drinks, key=lambda x: x.title )
+        return list_drinks
 
     def get_drinks_by_production_date(self, from_date=None, to_date=None) -> list:
         """

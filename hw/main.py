@@ -38,7 +38,9 @@ def work_with_less_objects():
     print(market.has_drink_with_title('IPA'))
     print(market.has_drink_with_title('Wine_5'))
 
-    print(market.get_drinks_sorted_by_title()[0][0])
+    list_drinks = market.get_drinks_sorted_by_title()
+    for drink in list_drinks:
+        print(drink.title)
 work_with_less_objects()
 """
 TODO: Доработать заготовки классов вина (Wine), пива (Beer) и магазина (Market) таким образом, чтобы через класс Market можно было:
