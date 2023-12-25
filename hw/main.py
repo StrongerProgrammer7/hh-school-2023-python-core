@@ -19,11 +19,6 @@ def create_many_objects(years: tuple, count):
         wine_production_year = random.randint(2000, 2022)
         wines.append(Wine(wine_title, wine_production_year))
 
-
-def has_drink_by_title(market: Market, title) -> bool:
-    return market.has_drink_with_title(title)
-
-
 def create_lessObjects():
     global beers, wines
     beers = [
@@ -43,8 +38,8 @@ create_lessObjects()
 market = Market(wines, beers)
 
 print('Has drink by title test-------------------------------')
-print(has_drink_by_title(market, 'Wine_1'))
-print(has_drink_by_title(market, 'IPA'))
+print('Result = ',market.has_drink_with_title('Wine_1'))
+print('Result = ', market.has_drink_with_title('IPA'))
 print('---------------------------------------------------------')
 
 print('Get sorted drink by title ----------------------------')
