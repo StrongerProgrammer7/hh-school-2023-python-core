@@ -34,7 +34,8 @@ def create_lessObjects():
 
     wines = [
         Wine("Merlot", 2018),
-        Wine("Chardonnay", 2022)
+        Wine("Chardonnay", 2022),
+        Wine("Cabernet Sauvignon", 2020),
     ]
 
 
