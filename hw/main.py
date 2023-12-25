@@ -39,12 +39,24 @@ def create_lessObjects():
 
 
 create_lessObjects()
-market = Market(wines,beers)
+market = Market(wines, beers)
 
-print(has_drink_by_title(market,'Wine_1'))
-print(has_drink_by_title(market,'IPA'))
+print('Has drink by title test-------------------------------')
+print(has_drink_by_title(market, 'Wine_1'))
+print(has_drink_by_title(market, 'IPA'))
+print('---------------------------------------------------------')
 
+print('Get sorted drink by title ----------------------------')
+list_sorted = market.get_drinks_sorted_by_title()
+for drink in list_sorted:
+    print(drink.title)
+print('---------------------------------------------------------')
+print('Get drink by date--------------------------------------')
+list_drinks_inRange_year = market.get_drinks_by_production_date(2020, 2024)
+for drink in list_drinks_inRange_year:
+    print(drink.title, ' : ', drink.production_date)
 
+print('------------------------------------------------------------')
 
 """
 TODO: Доработать заготовки классов вина (Wine), пива (Beer) и магазина (Market) таким образом, чтобы через класс Market можно было:
