@@ -4,44 +4,48 @@ from wine import Wine
 from beer import Beer
 from market import Market
 
-def work_with_more_objecs():
-    beer_objects = []
-    wine_objects = []
+beers = []
+wines = []
 
-    for i in range(1, 101):
+
+def create_many_objects(years: tuple, count):
+    global beers, wines
+    for i in range(1, count):
         beer_title = f"Beer_{i}"
-        beer_production_year = random.randint(2000, 2022)
-        beer_objects.append(Beer(beer_title, beer_production_year))
+        beer_production_year = random.randint(years[0], years[1])
+        beers.append(Beer(beer_title, beer_production_year))
 
         wine_title = f"Wine_{i}"
         wine_production_year = random.randint(2000, 2022)
-        wine_objects.append(Wine(wine_title, wine_production_year))
+        wines.append(Wine(wine_title, wine_production_year))
 
-    market = Market(wine_objects, beer_objects)
-    print(market.has_drink_with_title('Wine_2'))
-    print(market.has_drink_with_title('Wine_5'))
-    print(market.has_drink_with_title('Wine_103'))
 
-def work_with_less_objects():
+def has_drink_by_title(market: Market, title) -> bool:
+    return market.has_drink_with_title(title)
+
+
+def create_lessObjects():
+    global beers, wines
     beers = [
         Beer("Stout", 2020),
         Beer("IPA", 2019),
         Beer("Lager", 2021)
     ]
 
-    # Create 2 Wine objects with normal titles
     wines = [
         Wine("Merlot", 2018),
         Wine("Chardonnay", 2022)
     ]
-    market = Market(wines, beers)
-    print(market.has_drink_with_title('IPA'))
-    print(market.has_drink_with_title('Wine_5'))
 
-    list_drinks = market.get_drinks_sorted_by_title()
-    for drink in list_drinks:
-        print(drink.title)
-work_with_less_objects()
+
+create_lessObjects()
+market = Market(wines,beers)
+
+print(has_drink_by_title(market,'Wine_1'))
+print(has_drink_by_title(market,'IPA'))
+
+
+
 """
 TODO: Доработать заготовки классов вина (Wine), пива (Beer) и магазина (Market) таким образом, чтобы через класс Market можно было:
 
